@@ -1,10 +1,10 @@
 const mongoose= require('mongoose');
-// require("dotenv").config();
-const mongoURI= 'mongodb://localhost:27017/swachbin';
+require("dotenv").config();
+const mongoURI= process.env.MONGODB_URI;
 
 const connectToMongo = () =>
 {
-    mongoose.connect(mongoURI, ()=>{
+        mongoose.connect(mongoURI, ()=>{
         console.log('successfully connected to mongoDB')
     })
 }

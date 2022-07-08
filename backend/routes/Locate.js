@@ -14,7 +14,7 @@ router.post('/add',[body('lat').isDecimal(), body('lng').isDecimal()], async (re
   try{
     const check= await Locate.findOne({lat: req.body.lat, lng: req.body.lng});
   if(check)
-  return res.status(404).json({error: "given location is already in our database"});
+  return res.status(400).json({error: "given location is already in our database"});
   await Locate.create({
     lat: req.body.lat,
     lng: req.body.lng,
